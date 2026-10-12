@@ -1,0 +1,34 @@
+{
+  "name": "graphic-studio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "electron/main.cjs",
+  "description": "Graphic Studio — графический калькулятор",
+  "author": "you",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "exe": "vite build && electron-builder --win portable"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0",
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.graphicstudio.app",
+    "productName": "Graphic Studio",
+    "files": [
+      "dist/**",
+      "electron/**"
+    ],
+    "win": {
+      "target": "portable"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Graphic Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  </head>
+  <body>
+    <div id="app">
+      <aside>
+        <div class="hdr">Graphic Studio<small>Построение графиков</small></div>
+        <div id="cloud" hidden style="display:flex;gap:6px;padding:0 12px">
+          <button id="cSave" class="x" style="font-size:13px">☁ Сохранить</button>
+          <button id="cLoad" class="x" style="font-size:13px">☁ Загрузить</button>
+        </div>
+        <div class="tabs">
+          <button class="on" data-t="eq">Уравнения</button>
+          <button data-t="var">Переменные</button>
+          <button data-t="task">Задачи</button>
+          <button data-t="terms">Термины</button>
+        </div>
+        <div id="lists">
+          <div id="eqs"></div>
+          <button id="add">＋ Добавить уравнение</button>
+          <div id="vars" hidden></div>
+          <div id="terms" hidden>
+            <div class="row"><input type="text" id="tq" placeholder="Поиск термина: функция, область значений…" spellcheck="false" /></div>
+            <div id="tl"></div>
+          </div>
+          <div id="task" hidden>
+            <div class="empty" style="padding:2px 0 8px">Введите условие как в учебнике: формула и «где −3 ≤ x ≤ 3» (можно &lt;= и &gt;=).</div>
+            <div class="row"><span class="y">y =</span><input type="text" id="tIn" value="x^2 - 5" placeholder="Введите формулу, например: x^2 - 5" spellcheck="false" autocapitalize="off" /></div>
+            <div class="row"><span class="y">x ∈</span><input type="text" id="tD" value="-3 <= x <= 3" placeholder="Введите область определения, например: -3 <= x <= 3" spellcheck="false" autocapitalize="off" /></div>
+            <div class="row"><span class="y">x:</span><input type="text" id="tX" value="-3; -2; -1; -0,5; 0; 0,5; 1; 2; 3" spellcheck="false" placeholder="Введите значения x через «;» (пусто — подберу сам)"></div>
+            <button id="tGo" class="pb">Решить задачу</button>
+            <div id="tOut"></div>
+          </div>
+        </div>
+      </aside>
+      <main id="mn">
+        <canvas id="cv"></canvas>
+        <div class="penbar">
+          <label class="sw"><input type="checkbox" id="rc" checked /><i></i>Авто-распознавание</label>
+          <button id="clr">Очистить рисунки</button>
+        </div>
+        <div class="tools">
+          <button id="bMode" title="Рисование от руки">✎</button>
+          <button id="bTrace" title="Трассировка">⌖</button>
+          <button id="bIn" title="Приблизить">+</button>
+          <button id="bOut" title="Отдалить">−</button>
+          <button id="bHome" title="Сбросить вид">⌂</button>
+          <button id="bPng" title="Экспорт графика в PNG">⤓</button>
+        </div>
+        <div id="toast"></div>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
